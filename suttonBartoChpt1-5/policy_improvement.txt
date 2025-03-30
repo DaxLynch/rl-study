@@ -1,0 +1,20 @@
+im reading out of sutton and barto
+for policy improvement, we take a value function and improve a policy.
+We basically want to find if the action a != pi(s) improves the policy
+so if in state s we take action a instead of pi(s), then following that for
+both we take pi(s), if there is an improvement with a, then we should make pi'
+st pi'(s!=a) = pi(s), pi'(s) = a.
+We therefor need to be calculamatin' q_pi(s,a). So given a, if the value of
+state s and action a, i higher than the value of state s and action(pi(s)),
+then we change pi.
+Furthermore, after barto does a bunch of algebra,
+they get to pi'(s) = argmax_a[ q_pi(s,a)]
+So the action we should take at s, is the action that maximizes the
+state-action pair function
+
+I need to estimate q* to generate policy pi'
+for policy evaluation to work for action values, we must assure continual
+exploration.
+
+I added an epislon greedy thingy so that it will check out other states. I
+ended up using .5 * length - i/length **2 to get the best accuracy of .95
